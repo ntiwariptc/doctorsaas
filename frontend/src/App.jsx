@@ -1,14 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AddPatientForm from "./components/AddPatientForm";
 import PrintablePrescription from "./components/PrintablePrescription";
-import BillingReceipt from "./components/BillingReceipt"; // ✅ NEW
+import BillingReceipt from "./components/BillingReceipt";
 
 const App = () => {
   const [patients, setPatients] = useState([]);
   const [searchMrNo, setSearchMrNo] = useState("");
   const [selectedPatient, setSelectedPatient] = useState(null);
 
-  // Load from localStorage on mount
   useEffect(() => {
     const stored = localStorage.getItem("patients");
     if (stored) {
@@ -16,7 +15,6 @@ const App = () => {
     }
   }, []);
 
-  // Save to localStorage whenever patients change
   useEffect(() => {
     localStorage.setItem("patients", JSON.stringify(patients));
   }, [patients]);
