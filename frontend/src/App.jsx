@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddPatientForm from "./components/AddPatientForm";
 import PrintablePrescription from "./components/PrintablePrescription";
+import BillingReceipt from "./components/BillingReceipt"; // ✅ NEW
 
 function App() {
   const [patients, setPatients] = useState([]);
@@ -25,7 +26,14 @@ function App() {
           <PrintablePrescription patient={selectedPatient} />
         </div>
       )}
+      {selectedPatient && (
+        <div className="mt-8">
+          <BillingReceipt patient={selectedPatient} />
+        </div>
+      )}
     </div>
+    //</div>
+    
   );
 }
 
