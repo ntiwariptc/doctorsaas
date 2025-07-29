@@ -12,13 +12,13 @@ app.use(express.json());
 // ✅ Use patient routes
 app.use('/api/patients', patientRoutes);
 
-// Connect to MongoDB Atlas
-mongoose.connect("mongodb+srv://nitin:jVoXcGH0nfIZU21B@cluster0.vji1eqw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+//Mongo Connection 
+mongoose.connect("mongodb+srv://doctor:Doctor%40123@cluster0.vji1eqw.mongodb.net/patient?retryWrites=true&w=majority&appName=Cluster0", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log("Connected to MongoDB Atlas"))
-.catch((err) => console.error("MongoDB connection error:", err));
+.then(() => console.log("✅ Connected to MongoDB Atlas"))
+.catch((err) => console.error("❌ MongoDB connection error:", err));
 
 
 app.listen(port, () => {
